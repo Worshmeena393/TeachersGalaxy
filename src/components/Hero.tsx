@@ -19,7 +19,7 @@ function Hero({ onStart }: HeroProps) {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-          For Those Who Help Us Grow
+          A story of the people who helped us become
         </motion.p>
 
         <motion.h1
@@ -28,28 +28,20 @@ function Hero({ onStart }: HeroProps) {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.2 }}
         >
-          WHAT IF
+          Every lesson
           <br />
-          TEACHERS NEVER EXISTED?
+          shaped a future.
         </motion.h1>
 
-        <div className="hero-lines">
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
-            No Knowledge.
-          </motion.p>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>
-            No Discovery.
-          </motion.p>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }}>
-            No Innovation.
-          </motion.p>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.5 }}>
-            No Progress.
-          </motion.p>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 3 }}>
-            No Dreams.
-          </motion.p>
-        </div>
+        <motion.p
+          className="hero-description"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45, duration: 0.7 }}
+        >
+          From a first question to a future you never imagined, a teacher was
+          there.
+        </motion.p>
 
         <motion.button
           className="gold-btn"
@@ -60,7 +52,7 @@ function Hero({ onStart }: HeroProps) {
           whileTap={{ scale: 0.95 }}
           onClick={onStart}
         >
-          Begin The Tribute
+          Begin the story
         </motion.button>
       </motion.div>
     </section>

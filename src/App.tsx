@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import "./story.css";
 import Hero from "./components/Hero";
 import Gifts from "./components/Gifts";
 import GlobalSection from "./components/GlobalSection";
 import FinalTribute from "./components/FinalTribute";
 
 const chapterIds = new Set([
-  "tribute-lessons",
+  "story-moments",
   "education-never-stopped",
   "learning-everywhere",
-  "teachers-shape-futures",
+  "success-story",
+  "source-code",
   "dedication",
 ]);
 

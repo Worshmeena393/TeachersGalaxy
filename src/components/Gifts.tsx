@@ -1,67 +1,79 @@
 import { motion } from "framer-motion";
 
-const gifts = [
+const moments = [
   {
-    icon: "📚",
-    title: "KNOWLEDGE",
-    text: "You transformed information into understanding and opened doors to new possibilities."
+    chapter: "01",
+    phase: "The first day",
+    title: "Every beginning holds a question.",
+    text: "A room full of possibility. A first brave answer. Someone patient enough to make curiosity feel welcome.",
   },
   {
-    icon: "🧭",
-    title: "GUIDANCE",
-    text: "You illuminated the path forward whenever the journey seemed uncertain."
+    chapter: "02",
+    phase: "Guidance",
+    title: "A steady voice beside the path.",
+    text: "Teachers gave direction without taking the journey away, helping us find our own way forward.",
   },
   {
-    icon: "💪",
-    title: "CONFIDENCE",
-    text: "You helped turn doubt into belief and encouraged us to aim higher."
+    chapter: "03",
+    phase: "The challenge",
+    title: "Not every answer came easily.",
+    text: "When the work felt too hard, a teacher reminded us that struggle is part of learning, not the end of it.",
   },
   {
-    icon: "🌱",
-    title: "PERSISTENCE",
-    text: "You taught us that growth comes from patience, effort, and resilience."
+    chapter: "04",
+    phase: "Growth",
+    title: "Little by little, we became more.",
+    text: "Practice became progress. Doubt made room for confidence. The lessons reached far beyond the classroom.",
   },
   {
-    icon: "✨",
-    title: "INSPIRATION",
-    text: "You inspired curiosity, discovery, creativity, and lifelong learning."
+    chapter: "05",
+    phase: "Success",
+    title: "One day, we stood on our own.",
+    text: "Every achievement carried traces of the people who taught us to keep going and believe we could.",
   },
   {
-    icon: "🌍",
-    title: "IMPACT",
-    text: "What you taught travels with your students, long after they leave your classroom."
+    chapter: "06",
+    phase: "Gratitude",
+    title: "The lesson stays with us.",
+    text: "Long after the final bell, a teacher's care continues in every choice, every dream, every future we shape.",
   }
 ];
 
 function Gifts() {
   return (
-    <section className="gifts">
-      <motion.h2
-        className="section-title"
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        The Gifts Teachers Leave Behind
-      </motion.h2>
-
-      <div className="gifts-stack">
-        {gifts.map((gift, index) => (
-          <motion.article
-            key={gift.title}
-            className="gift-card"
-            initial={{ opacity: 0, y: 80, x: index % 2 === 0 ? -40 : 40 }}
-            whileInView={{ opacity: 1, y: 0, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: index * 0.15 }}
-          >
-            <div className="gift-icon">{gift.icon}</div>
-            <h3>{gift.title}</h3>
-            <p>{gift.text}</p>
-          </motion.article>
-        ))}
+    <section className="journey-section" id="story-moments">
+      <div className="journey-heading">
+        <span className="eyebrow">The journey we share</span>
+        <motion.h2
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.65 }}
+        >
+          Every lesson shaped <em>a future.</em>
+        </motion.h2>
+        <p>Six moments in a lifetime of learning. One teacher's lasting mark.</p>
       </div>
+
+      <ol className="journey-track">
+        {moments.map((moment, index) => (
+          <motion.li
+            className="journey-step"
+            key={moment.chapter}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.55, delay: index % 2 === 0 ? 0.04 : 0.12 }}
+          >
+            <span className="journey-marker" aria-hidden="true">{moment.chapter}</span>
+            <article className="journey-copy">
+              <span className="journey-phase">{moment.phase}</span>
+              <h3>{moment.title}</h3>
+              <p>{moment.text}</p>
+            </article>
+          </motion.li>
+        ))}
+      </ol>
     </section>
   );
 }
