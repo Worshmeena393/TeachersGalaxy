@@ -19,7 +19,7 @@ function Hero({ onStart }: HeroProps) {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-          A story of the people who helped us become
+          روایتی از کسانی که راه آینده را روشن کردند
         </motion.p>
 
         <motion.h1
@@ -28,9 +28,9 @@ function Hero({ onStart }: HeroProps) {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.2 }}
         >
-          Every lesson
+          هر آینده‌ای
           <br />
-          shaped a future.
+          از یک درس آغاز می‌شود
         </motion.h1>
 
         <motion.p
@@ -39,20 +39,19 @@ function Hero({ onStart }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45, duration: 0.7 }}
         >
-          From a first question to a future you never imagined, a teacher was
-          there.
+          از نخستین پرسش تا دورترین آرزو، استادان در کنار ما بودند.
         </motion.p>
 
         <motion.button
           className="gold-btn"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 3.5 }}
+          transition={{ delay: 0.8 }}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
           onClick={onStart}
         >
-          Begin the story
+          آغاز روایت
         </motion.button>
       </motion.div>
     </section>

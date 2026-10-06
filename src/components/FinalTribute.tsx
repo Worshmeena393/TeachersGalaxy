@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 
 const codeLines = [
-  'future = {}',
-  'future["knowledge"] = "Teachers"',
-  'future["confidence"] = "Guidance"',
-  'future["success"] = "Dedication"',
+  { expression: "future = {}" },
+  { key: "دانش", value: "استادان" },
+  { key: "اعتماد_به_نفس", value: "راهنمایی" },
+  { key: "موفقیت", value: "تلاش" },
+  { key: "الهام", value: "معلمان" },
 ];
 
 const particles = [
@@ -17,8 +18,8 @@ function FinalTribute() {
   return (
     <>
       <section className="success-section" id="success-story">
-        <div className="success-words" aria-label="Behind every dream, achievement, and success, there was a teacher.">
-          {["Behind every dream.", "Behind every achievement.", "Behind every success.", "There was a teacher."].map((line, index) => (
+        <div className="success-words" aria-label="هر آرزو، هر دست‌آورد و هر موفقیت با راهنمایی یک استاد همراه بود.">
+          {["پشت هر آرزو،", "پشت هر دست‌آورد،", "پشت هر موفقیت،", "استادی ایستاده بود."].map((line, index) => (
             <motion.p
               className={index === 3 ? "success-reveal" : "success-line"}
               key={line}
@@ -33,13 +34,14 @@ function FinalTribute() {
         </div>
       </section>
 
-      <section className="source-section" id="source-code">
+      <section className="source-section" id="chapter-five">
         <div className="source-intro">
-          <span className="eyebrow">A little gratitude, written in code</span>
-          <h2>Source Code Of My Future</h2>
+          <span className="eyebrow">فصل پنجم · منبع آینده من</span>
+          <h2>کد منبع آینده من</h2>
         </div>
         <motion.pre
           className="source-window"
+          dir="ltr"
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
@@ -50,13 +52,18 @@ function FinalTribute() {
             {codeLines.map((line, index) => (
               <motion.span
                 className="source-line"
-                key={line}
+                key={`${line.expression ?? line.key}`}
                 initial={{ opacity: 0, x: -8 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: 0.3 + index * 0.28 }}
+                dir="ltr"
               >
-                {line}
+                {line.expression ? line.expression : (
+                  <>
+                    future[&quot;<span className="code-string"><bdi lang="fa-AF" dir="rtl">{line.key}</bdi></span>&quot;] = &quot;<span className="code-string"><bdi lang="fa-AF" dir="rtl">{line.value}</bdi></span>&quot;
+                  </>
+                )}
               </motion.span>
             ))}
           </code>
@@ -68,7 +75,8 @@ function FinalTribute() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 1.4 }}
         >
-          Every line of my future was inspired by my teachers.
+          هر خط از آیندهٔ من،<br />
+          با آموزش، صبر و الهام استادان نوشته شده است.
         </motion.p>
       </section>
 
@@ -89,10 +97,10 @@ function FinalTribute() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 1 }}
         >
-          <span className="ending-kicker">With gratitude, always</span>
-          <h2>Happy Teachers Day</h2>
-          <p>To every teacher who believed in a student before the student believed in themselves.</p>
-          <span className="ending-signature">Worshmeena Qayoumi</span>
+          <span className="ending-kicker">با سپاس و احترام، همیشه</span>
+          <h2>روز معلم مبارک</h2>
+          <p>به تمام استادانی که پیش از آن‌که شاگرد به خود باور داشته باشد، به او باور داشتند.</p>
+          <span className="ending-signature">وریښمینه قیومی</span>
         </motion.div>
       </section>
     </>

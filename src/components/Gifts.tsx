@@ -1,41 +1,25 @@
 import { motion } from "framer-motion";
 
-const moments = [
+const journeyBeats = [
   {
-    chapter: "01",
-    phase: "The first day",
-    title: "Every beginning holds a question.",
-    text: "A room full of possibility. A first brave answer. Someone patient enough to make curiosity feel welcome.",
+    phase: "چالش",
+    title: "هر پاسخ، آسان به دست نمی‌آید.",
+    text: "هنگامی که راه دشوار شد، استادان به ما آموختند که کوشش بخشی از یادگیری است.",
   },
   {
-    chapter: "02",
-    phase: "Guidance",
-    title: "A steady voice beside the path.",
-    text: "Teachers gave direction without taking the journey away, helping us find our own way forward.",
+    phase: "رشد",
+    title: "گام‌به‌گام نیرومندتر شدیم.",
+    text: "با تمرین، صبر و دل‌گرمی استادان، تردید جای خود را به اعتماد و پیشرفت داد.",
   },
   {
-    chapter: "03",
-    phase: "The challenge",
-    title: "Not every answer came easily.",
-    text: "When the work felt too hard, a teacher reminded us that struggle is part of learning, not the end of it.",
+    phase: "موفقیت",
+    title: "روزی بر پای خود ایستادیم.",
+    text: "در هر دست‌آورد، نشانی از راهنمایی کسانی هست که به توانایی ما باور داشتند.",
   },
   {
-    chapter: "04",
-    phase: "Growth",
-    title: "Little by little, we became more.",
-    text: "Practice became progress. Doubt made room for confidence. The lessons reached far beyond the classroom.",
-  },
-  {
-    chapter: "05",
-    phase: "Success",
-    title: "One day, we stood on our own.",
-    text: "Every achievement carried traces of the people who taught us to keep going and believe we could.",
-  },
-  {
-    chapter: "06",
-    phase: "Gratitude",
-    title: "The lesson stays with us.",
-    text: "Long after the final bell, a teacher's care continues in every choice, every dream, every future we shape.",
+    phase: "سپاس‌گزاری",
+    title: "اثر نیکی استاد باقی می‌ماند.",
+    text: "پس از پایان درس نیز، مهربانی و آموخته‌های استاد در انتخاب‌ها و آرزوهای ما زنده است.",
   }
 ];
 
@@ -43,29 +27,55 @@ function Gifts() {
   return (
     <section className="journey-section" id="story-moments">
       <div className="journey-heading">
-        <span className="eyebrow">The journey we share</span>
+        <span className="eyebrow">فصل نخست و دوم · آغاز و راهنمایی</span>
         <motion.h2
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.65 }}
         >
-          Every lesson shaped <em>a future.</em>
+          هر درس، <em>آینده‌ای را ساخت.</em>
         </motion.h2>
-        <p>Six moments in a lifetime of learning. One teacher's lasting mark.</p>
+        <p>آینده از یک درس آغاز می‌شود و با راهنمایی استادان روشن‌تر می‌گردد.</p>
+      </div>
+
+      <div className="chapter-pair">
+        <motion.article
+          className="chapter-card chapter-card-first"
+          id="chapter-one"
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.55 }}
+        >
+          <span className="chapter-number">فصل ۰۱</span>
+          <h3>آغاز یک سفر</h3>
+          <p>هر آینده‌ای از یک درس آغاز می‌شود.</p>
+        </motion.article>
+        <motion.article
+          className="chapter-card chapter-card-guidance"
+          id="chapter-two"
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.55, delay: 0.12 }}
+        >
+          <span className="chapter-number">فصل ۰۲</span>
+          <h3>استادان چراغ راه بودند</h3>
+          <p>در هر مرحله از یادگیری، استادان راه را روشن کردند.</p>
+        </motion.article>
       </div>
 
       <ol className="journey-track">
-        {moments.map((moment, index) => (
+        {journeyBeats.map((moment, index) => (
           <motion.li
             className="journey-step"
-            key={moment.chapter}
-            initial={{ opacity: 0, y: 24 }}
+            key={moment.phase}
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.55, delay: index % 2 === 0 ? 0.04 : 0.12 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.5, delay: index * 0.08 }}
           >
-            <span className="journey-marker" aria-hidden="true">{moment.chapter}</span>
             <article className="journey-copy">
               <span className="journey-phase">{moment.phase}</span>
               <h3>{moment.title}</h3>
